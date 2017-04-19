@@ -17,17 +17,18 @@ namespace Scacchi.Modello.Pezzi {
             Colonna colonnaPartenza,
             Traversa traversaPartenza,
             Colonna colonnaArrivo,
-            Traversa traversaArrivo)
+            Traversa traversaArrivo,
+            IScacchiera scacchiera = null)
         {
-            var stessaColonna = colonnaPartenza == colonnaArrivo ;
+            var stessaColonna = colonnaPartenza == colonnaArrivo;
             var stessaTraversa = traversaPartenza == traversaArrivo;
-            
-           if(stessaColonna ^ stessaTraversa){
-               return true;
-           }else{
-               return false;
-           }
-        }
 
+            if((stessaTraversa && !stessaColonna) || (stessaColonna && !stessaTraversa)){
+                return true;
+            }else{
+                return false;
+            }
+            
+        }
     }
 }

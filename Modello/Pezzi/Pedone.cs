@@ -17,12 +17,18 @@ namespace Scacchi.Modello.Pezzi {
             Colonna colonnaPartenza,
             Traversa traversaPartenza,
             Colonna colonnaArrivo,
-            Traversa traversaArrivo)
+            Traversa traversaArrivo,
+            IScacchiera scacchiera = null)
         {
             var stessaColonna = colonnaPartenza == colonnaArrivo;
-            var distanzaTraLeTraverse = (int) traversaArrivo - (int) traversaPartenza;
-            
-            if (stessaColonna && ((distanzaTraLeTraverse == 1 && colore == Colore.Bianco) || (distanzaTraLeTraverse == -1 && colore == Colore.Nero))){
+            int distanzaTraLeTraverse;
+            if(Colore == Colore.Bianco){
+            distanzaTraLeTraverse = (int) traversaArrivo - (int) traversaPartenza;
+            }else{
+            distanzaTraLeTraverse =  (int) traversaPartenza - (int) traversaArrivo;
+            }
+
+            if (stessaColonna && distanzaTraLeTraverse == 1){
                 return true;
             } else if (stessaColonna && ((distanzaTraLeTraverse == 2 && colore == Colore.Bianco && traversaPartenza == Traversa.Seconda) || (colore == Colore.Nero && traversaPartenza == Traversa.Settima && distanzaTraLeTraverse == -2)) ){ 
                     return true;
