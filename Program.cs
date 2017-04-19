@@ -24,14 +24,10 @@ namespace Scacchi
         {
             Console.WriteLine($"(Dal metodo): Il giocatore {colore} ha perso la partita, secondo l'orologio {sender}!");
         }
-<<<<<<< HEAD
 
         private static void NotificaSconfitta(object sender, Colore colore)
         {
             Console.WriteLine($"Il giocatore {colore} ha perso la partita");
         }
-=======
-        */
->>>>>>> updates
     }
 }
